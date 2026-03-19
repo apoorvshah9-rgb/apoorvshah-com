@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const allLinks = await getCollection('links');
+const links = allLinks.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = ['Articles', 'Podcasts', 'Research', 'Videos'] as const;
+
+const linksByCategory = categories.reduce<Record<string, typeof links>>((acc, cat) => {
+  acc[cat] = links.filter((l) => l.data.category === cat);
+  return acc;
+}, {});
+---
+
+<BaseLayout
+  title="Links"
+  description="A curated collection of articles, podcasts, research papers, and videos — updated weekly by Apoorv Shah."
+  activeNav="links"
+>
+  <div class="container">
+
+    <div class="page-header">
+      <h1>Links</h1>
+      <p class="links-intro">A curated collection, updated weekly.</p>
+    </div>
+
+    {categories.map((category) => (
+      linksByCategory[category].length > 0 && (
+        <section class="links-category">
+          <h2>{category}</h2>
+          <ul class="links-list">
+            {linksByCategory[category].map((link) => (
+              <li class="link-item">
+                <a href={link.data.url} target="_blank" rel="noopener noreferrer">
+                  {link.data.title}
+                </a>
+                <p class="link-desc">{link.data.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    ))}
+
+    {links.length === 0 && (
+      <p style="color: var(--muted);">No links yet. Check back soon.</p>
+    )}
+
+  </div>
+</BaseLayout>

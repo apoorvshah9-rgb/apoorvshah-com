@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeNav?: 'writing' | 'links';
+}
+
+const {
+  title,
+  description = 'Personal website of Apoorv Shah. Essays on education, policy, India, technology, economics, and people management.',
+  activeNav,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title === 'Apoorv Shah' ? title : `${title} — Apoorv Shah`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="@apoorv3E" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">Apoorv Shah</a>
+      <div class="nav-links">
+        <a href="/writing" class={activeNav === 'writing' ? 'active' : ''}>Writing</a>
+        <a href="/links" class={activeNav === 'links' ? 'active' : ''}>Links</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© {new Date().getFullYear()} Apoorv Shah. Views personal.</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/apoorvshah9/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://x.com/apoorv3E" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

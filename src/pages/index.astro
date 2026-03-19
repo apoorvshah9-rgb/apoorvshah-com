@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const recentPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout title="Apoorv Shah">
+  <div class="container">
+
+    <section class="home-hero">
+      <h1>Hi, I'm Apoorv.</h1>
+      <p class="home-tagline">Optimising for interesting.</p>
+      <div class="home-bio">
+        <p>Father. Teacher. Lawyer.</p>
+        <p class="interests">
+          Writing about education (gifted &amp; accelerated), economics, technology, India, people management, and urban planning. Views personal.
+        </p>
+      </div>
+    </section>
+
+    {recentPosts.length > 0 && (
+      <section>
+        <p class="home-section-title">Recent Writing</p>
+        <ul class="home-post-list">
+          {recentPosts.map((post) => (
+            <li class="home-post-item">
+              <a href={`/writing/${post.slug}`}>
+                <div class="post-meta">{formatDate(post.data.date)}</div>
+                <div class="post-title">{post.data.title}</div>
+                <div class="post-desc">{post.data.description}</div>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href="/writing" class="view-all">All writing →</a>
+      </section>
+    )}
+
+  </div>
+</BaseLayout>

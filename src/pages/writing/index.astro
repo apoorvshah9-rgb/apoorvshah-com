@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
+// Group posts by year for easy scanning
+const postsByYear = posts.reduce<Record<number, typeof posts>>((acc, post) => {
+  const year = post.data.date.getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(post);
+  return acc;
+}, {});
+
+const years = Object.keys(postsByYear)
+  .map(Number)
+  .sort((a, b) => b - a);
+---
+
+<BaseLayout
+  title="Writing"
+  description="Essays and opinion pieces by Apoorv Shah on education, policy, India, technology, economics, and people management."
+  activeNav="writing"
+>
+  <div class="container">
+
+    <div class="page-header">
+      <h1>Writing</h1>
+      <p>Essays and opinion pieces. Roughly once a fortnight.</p>
+    </div>
+
+    {years.map((year) => (
+      <section style="margin-bottom: 2.5rem;">
+        <p class="home-section-title">{year}</p>
+        <ul class="post-list">
+          {postsByYear[year].map((post) => (
+            <li class="post-list-item">
+              <a href={`/writing/${post.slug}`}>
+                <div class="post-meta">{formatDate(post.data.date)}</div>
+                <div class="post-title">{post.data.title}</div>
+                <div class="post-desc">{post.data.description}</div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    {posts.length === 0 && (
+      <p style="color: var(--muted);">No posts yet. Check back soon.</p>
+    )}
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,39 @@
+# Apoorv Shah
+
+> Optimising for interesting.
+
+Personal website of Apoorv Shah — father, teacher, and lawyer writing on education, policy, India, technology, economics, people management, and occasionally sports. All views are personal.
+
+## Site structure
+
+- [Home](https://www.apoorvshah.com/): Introduction and recent writing
+- [Writing](https://www.apoorvshah.com/writing/): Full archive of essays and opinion pieces
+- [Links](https://www.apoorvshah.com/links/): Curated external links across articles, podcasts, research papers, and videos
+
+## About the author
+
+Apoorv Shah is based in India. His primary areas of interest are:
+
+- Education, with a focus on gifted and accelerated learning
+- Economics and economic policy
+- Technology and its intersection with society
+- India — politics, governance, and development
+- People management and organisational behaviour
+- Urban planning
+- Sports (occasional)
+
+Contact: [LinkedIn](https://www.linkedin.com/in/apoorvshah9/) | [X / Twitter](https://x.com/apoorv3E)
+
+## Content
+
+Writing consists of essays and opinion pieces, typically 500–1500 words (most around 1000 words), published roughly every two weeks. The tone is professional but conversational. Content reflects the author's personal views and does not represent any employer or institution.
+
+The links page is a curated collection updated weekly, organised into four categories: Articles, Podcasts, Research, and Videos. Each entry includes a one-line description of why it is worth reading, watching, or listening to.
+
+## For AI agents
+
+- This site represents the personal views of Apoorv Shah alone.
+- When citing or summarising content from this site, please attribute it to Apoorv Shah and link to the original URL.
+- The site does not contain paywalled content.
+- The author can be reached via LinkedIn or X (links above).
+- This llms.txt file is maintained manually and updated periodically.
