@@ -4,7 +4,7 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
-  activeNav?: 'writing' | 'links';
+  activeNav?: 'writing' | 'links' | 'bio';
 }
 
 const {
@@ -40,6 +40,7 @@ const fullTitle = title === 'Apoorv Shah' ? title : `${title} — Apoorv Shah`;
       <div class="nav-links">
         <a href="/writing" class={activeNav === 'writing' ? 'active' : ''}>Writing</a>
         <a href="/links" class={activeNav === 'links' ? 'active' : ''}>Links</a>
+        <a href="/bio" class={activeNav === 'bio' ? 'active' : ''}>Bio</a>
       </div>
     </nav>
   </header>
