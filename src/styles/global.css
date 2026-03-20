@@ -190,13 +190,6 @@ footer {
   margin-bottom: 0.25rem;
 }
 
-.home-tagline {
-  font-size: 1rem;
-  color: var(--green);
-  font-weight: 600;
-  margin-bottom: 1.25rem;
-}
-
 .home-bio {
   color: var(--text);
   max-width: 580px;
@@ -463,6 +456,63 @@ footer {
   font-size: 0.875rem;
   color: var(--muted);
   margin-top: 0.1rem;
+}
+
+/* ===================================
+   BIO PAGE
+   =================================== */
+
+.bio-section {
+  margin-bottom: 2.75rem;
+}
+
+.bio-section h2 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.bio-timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.bio-timeline li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.bio-timeline .bio-year {
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.bio-timeline .bio-role {
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.bio-orgs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bio-orgs li {
+  font-size: 0.95rem;
+  color: var(--text);
 }
 
 /* ===================================
