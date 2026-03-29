@@ -1,4 +1,4 @@
-# The Gini Coefficient and India: Why the Median Matters More
+# Median Per Captital Income >> Gini Coefficient | India
 
 There is a recurring temptation in Indian policy circles to reach for a single number when a complex question is asked. The Gini coefficient is one of those numbers. It is neat, it is comparable across countries, and it fits on a slide. But like most single numbers that describe complex systems, it tells you something, but not everything, and in India's case, the "not everything" part is doing a lot of work.
 
