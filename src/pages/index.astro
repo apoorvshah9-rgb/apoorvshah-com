@@ -1,11 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import home from '../data/home.json';
+import site from '../data/site.json';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const recentPosts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 4);
+  .slice(0, home.recentCount || 4);
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-IN', {
@@ -16,22 +18,20 @@ function formatDate(date: Date) {
 }
 ---
 
-<BaseLayout title="Apoorv Shah">
+<BaseLayout title={site.siteName}>
   <div class="container">
 
     <section class="home-hero">
-      <h1>Hi, I'm Apoorv.</h1>
+      <h1>{home.greeting}</h1>
       <div class="home-bio">
-        <p>Father. Teacher. Lawyer.</p>
-        <p class="interests">
-          Writing about education (gifted &amp; accelerated), economics, technology, India, people management, and urban planning. Views personal.
-        </p>
+        {home.tagline && <p>{home.tagline}</p>}
+        {home.interests && <p class="interests">{home.interests}</p>}
       </div>
     </section>
 
     {recentPosts.length > 0 && (
       <section>
-        <p class="home-section-title">Recent Writing</p>
+        <p class="home-section-title">{home.recentTitle}</p>
         <ul class="home-post-list">
           {recentPosts.map((post) => (
             <li class="home-post-item">

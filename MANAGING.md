@@ -1,132 +1,39 @@
-# Managing Your Website
+# Managing your website
 
-This guide explains how to update your site without touching any code. Everything is done by creating or editing plain text files on GitHub.
+You never need to edit files on GitHub. Everything is done in a simple editor.
 
----
+## Open the editor
 
-## How to add a new blog post
+Go to **apoorvshah.com/admin** (or app.pagescms.org) and sign in:
 
-1. Go to your GitHub repository in your browser (e.g. `github.com/yourname/apoorvshah-com`)
-2. Navigate to `src/content/blog/`
-3. Click **Add file → Create new file**
-4. Name the file using lowercase words with hyphens, ending in `.md`
-   - Good: `why-india-needs-better-urban-planning.md`
-   - Good: `on-managing-people-well.md`
-5. Copy and paste this template into the file:
+- **With GitHub:** click "Sign in with GitHub"
+- **With Gmail:** enter apoorvshah9@gmail.com and click the sign-in link sent to your inbox
 
-```
----
-title: "Your Post Title Here"
-date: 2026-03-19
-description: "A one or two sentence summary of this post."
-draft: false
----
+Then pick **apoorvshah-com** from the list.
 
-Your essay goes here. Write naturally.
+## What you can edit
 
-## Optional Section Heading
-
-You can use **bold** and *italics*.
-
-> This is a block quote — good for pull quotes.
-```
-
-6. Fill in your title, date (format: YYYY-MM-DD), description, and write your essay below the second `---`
-7. Scroll to the bottom and click **Commit changes**
-8. Your post will appear on the site within 2–3 minutes
-
-**To save a draft without publishing:** Change `draft: false` to `draft: true`. It won't appear on the site until you change it back.
-
----
-
-## How to add a link
-
-1. Go to `src/content/links/` in your GitHub repository
-2. Click **Add file → Create new file**
-3. Name the file something descriptive, ending in `.md`
-   - Example: `tsmc-acquired-podcast.md`
-4. Paste this template:
-
-```
----
-title: "Title of the Link"
-url: "https://example.com/the-link"
-category: "Articles"
-description: "One sentence on why this is worth reading/watching/listening to."
-date: 2026-03-19
----
-```
-
-5. Fill in the details. For `category`, choose exactly one of:
-   - `Articles`
-   - `Podcasts`
-   - `Research`
-   - `Videos`
-6. Click **Commit changes**
-7. The link appears on your Links page within 2–3 minutes
-
----
-
-## How to edit an existing post or link
-
-1. Navigate to the file in GitHub
-2. Click the **pencil icon** (Edit this file) in the top right
-3. Make your changes
-4. Click **Commit changes**
-
----
-
-## How to delete a post or link
-
-1. Navigate to the file in GitHub
-2. Click the **three dots menu** (⋯) in the top right
-3. Click **Delete file**
-4. Click **Commit changes**
-
----
-
-## Updating your bio or personal details
-
-Your bio text is in `src/pages/index.astro`. To edit it:
-
-1. Open that file in GitHub
-2. Click the pencil icon to edit
-3. Find the line that says `Father. Teacher. Lawyer.` or the interests paragraph
-4. Update the text
-5. Commit changes
-
-**Important:** Only edit the text inside quotation marks or between `>` and `<` tags. Do not move or delete anything else in that file.
-
----
-
-## Formatting reference (Markdown)
-
-| What you want | What to type |
+| Section in the editor | What it controls |
 |---|---|
-| **Bold** | `**bold text**` |
-| *Italic* | `*italic text*` |
-| A heading | `## Heading` |
-| A link | `[Link text](https://url.com)` |
-| A block quote | `> Quote text here` |
-| A horizontal line | `---` |
+| Writing | Your essays. Add, edit, delete, or save as draft |
+| Links | Your curated links page (Articles, Podcasts, Research, Videos) |
+| Homepage | Big heading, tagline, intro paragraph, number of recent posts |
+| Bio page | Career timeline and organisations list |
+| Site settings | Site name, page intros, footer note, social links |
 
----
+## Add a new essay
 
-## If something looks broken
+1. Click **Writing**, then **Add an entry**
+2. Fill in Title, Date, Summary, and write the essay in the Essay box
+3. Tick **Draft** if you don't want it live yet
+4. Click **Save**
 
-The most common issues:
-- **Date format wrong** — must be `YYYY-MM-DD` (e.g. `2026-03-19`, not `19 March 2026`)
-- **Category wrong** — must be exactly `Articles`, `Podcasts`, `Research`, or `Videos` — capitals matter
-- **Missing quotes** — all values except `date` and `draft` must be in double quotes `"like this"`
-- **URL missing `https://`** — links must start with `https://`
+The site updates itself within 2 to 3 minutes.
 
-If in doubt, look at an existing file in the same folder and copy its format exactly.
+## Images
 
----
+In the Essay box, use the image button to upload a picture. It is stored in `public/images`.
 
-## File naming conventions
+## If something goes wrong
 
-- Use lowercase only
-- Replace spaces with hyphens: `my-new-post.md`
-- No special characters: no `&`, `?`, `%`, etc.
-- Always end with `.md`
+Every save is a version in GitHub, so nothing is ever lost. If the site stops updating, check the latest deploy at app.netlify.com. A red "Failed" deploy usually means a field was left empty or a link is missing `https://`.

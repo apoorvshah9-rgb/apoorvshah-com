@@ -1,0 +1,20 @@
+{
+  "title": "Bio",
+  "intro": "",
+  "careerTitle": "Career",
+  "career": [
+    { "years": "2008 – 2013", "role": "Studied law at Gujarat National Law University" },
+    { "years": "2013 – 2015", "role": "Taught 7th and 8th grade English and Civics through the Teach For India Fellowship" },
+    { "years": "2015 – 2018", "role": "Program Manager at Teach For India — managed, trained, and coached a team of ~17 fellows each year" },
+    { "years": "2018 – 2019", "role": "Coached 10 School Empowerment Managers at 321 Education Foundation" },
+    { "years": "2019 – 2024", "role": "Led City Operations for Ahmedabad at Teach For India" },
+    { "years": "2026 – present", "role": "Lead Strategy and Marketing at Riverside Learning Center" }
+  ],
+  "orgsTitle": "Organisations worth supporting",
+  "organisations": [
+    { "name": "Teach For India", "url": "https://www.teachforindia.org" },
+    { "name": "Design For Change", "url": "https://www.designforchange.us" },
+    { "name": "XKDR Forum", "url": "https://www.xkdr.org" },
+    { "name": "Ummed Community Learning Center, Pune", "url": "" }
+  ]
+}

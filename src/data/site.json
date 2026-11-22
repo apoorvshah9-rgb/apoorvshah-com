@@ -1,0 +1,11 @@
+{
+  "siteName": "Apoorv Shah",
+  "siteDescription": "Personal website of Apoorv Shah. Essays on education, policy, India, technology, economics, and people management.",
+  "writingIntro": "Essays and opinion pieces. Roughly once a fortnight.",
+  "linksIntro": "A curated collection, updated weekly.",
+  "footerNote": "Views personal.",
+  "socialLinks": [
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/apoorvshah9/" },
+    { "label": "X", "url": "https://x.com/apoorv3E" }
+  ]
+}
