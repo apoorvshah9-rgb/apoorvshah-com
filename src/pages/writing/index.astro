@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import site from '../../data/site.json';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -36,7 +35,7 @@ const years = Object.keys(postsByYear)
 
     <div class="page-header">
       <h1>Writing</h1>
-      {site.writingIntro && <p>{site.writingIntro}</p>}
+      <p>Essays and opinion pieces. Roughly once a fortnight.</p>
     </div>
 
     {years.map((year) => (

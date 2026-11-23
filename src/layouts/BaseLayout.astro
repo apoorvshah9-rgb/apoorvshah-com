@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import site from '../data/site.json';
 
 interface Props {
   title: string;
@@ -10,12 +9,12 @@ interface Props {
 
 const {
   title,
-  description = site.siteDescription,
+  description = 'Personal website of Apoorv Shah. Essays on education, policy, India, technology, economics, and people management.',
   activeNav,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const fullTitle = title === site.siteName ? title : `${title} — ${site.siteName}`;
+const fullTitle = title === 'Apoorv Shah' ? title : `${title} — Apoorv Shah`;
 ---
 
 <!DOCTYPE html>
@@ -37,7 +36,7 @@ const fullTitle = title === site.siteName ? title : `${title} — ${site.siteNam
 <body>
   <header>
     <nav>
-      <a href="/" class="nav-logo">{site.siteName}</a>
+      <a href="/" class="nav-logo">Apoorv Shah</a>
       <div class="nav-links">
         <a href="/writing" class={activeNav === 'writing' ? 'active' : ''}>Writing</a>
         <a href="/links" class={activeNav === 'links' ? 'active' : ''}>Links</a>
@@ -52,11 +51,10 @@ const fullTitle = title === site.siteName ? title : `${title} — ${site.siteNam
 
   <footer>
     <div class="footer-inner">
-      <span>© {new Date().getFullYear()} {site.siteName}. {site.footerNote}</span>
+      <span>© {new Date().getFullYear()} Apoorv Shah. Views personal.</span>
       <div class="footer-links">
-        {site.socialLinks.map((l) => (
-          <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}</a>
-        ))}
+        <a href="https://www.linkedin.com/in/apoorvshah9/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://x.com/apoorv3E" target="_blank" rel="noopener noreferrer">X</a>
       </div>
     </div>
   </footer>

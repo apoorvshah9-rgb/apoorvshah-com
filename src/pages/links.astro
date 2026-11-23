@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import site from '../data/site.json';
 
 const allLinks = await getCollection('links');
 const links = allLinks.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -23,7 +22,7 @@ const linksByCategory = categories.reduce<Record<string, typeof links>>((acc, ca
 
     <div class="page-header">
       <h1>Links</h1>
-      {site.linksIntro && <p class="links-intro">{site.linksIntro}</p>}
+      <p class="links-intro">A curated collection, updated weekly.</p>
     </div>
 
     {categories.map((category) => (
